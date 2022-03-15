@@ -1,0 +1,91 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+    struct fic_carro
+    {
+
+        char marca[10];
+        char modelo[10];
+        int ano;
+        char placa[10];
+
+    }
+
+cad_carro [10];
+
+
+int main()
+{
+    int i;
+
+    printf("-------Cadastro de Veiculos-------");
+
+    for(i=0;i<10;i++)
+    {
+
+        printf("\n\nMarca......:");
+        scanf("%s", &cad_carro[i].marca);
+        printf("Modelo......:");
+        scanf("%s", &cad_carro[i].modelo);
+        printf("Ano......:");
+        scanf("%d", &cad_carro[i].ano);
+        printf("Placa......:");
+        scanf("%s", &cad_carro[i].placa);
+
+    }
+
+    printf("\n-------Listagem de Veiculos-------");
+
+    for(i=0;i<10;i++)
+    {
+        printf("\n\n%s",cad_carro[i].marca);
+        printf("\n%s",cad_carro[i].modelo);
+        printf("\n%d",cad_carro[i].ano);
+        printf("\n%s",cad_carro[i].placa);
+    }
+
+    int anoFiltro;
+    char modeloFiltro[10];
+    int retorno;
+
+    printf("\n-------Filtro por Ano de Fabricacao-------");
+
+        printf("\n\n Digite o ano a ser filtrado.....:");
+        scanf("%d",&anoFiltro);
+
+    for(i=0;i<10;i++)
+    {
+
+        if(cad_carro[i].ano >= anoFiltro)
+        {
+        printf("\n\n%s",cad_carro[i].marca);
+        printf("\n%s",cad_carro[i].modelo);
+        printf("\n%d",cad_carro[i].ano);
+        printf("\n%s",cad_carro[i].placa);
+        }
+
+    }
+
+    printf("\n-------Filtro por Modelo-------");
+
+        printf("\n\nDigite o modelo a ser perquisado....:");
+        scanf("%s", &modeloFiltro);
+
+    for(i=0;i<10;i++)
+    {
+
+    retorno = strcmp(modeloFiltro,cad_carro[i].modelo);
+
+        if(retorno == 0)
+        {
+        printf("\n\n%s",cad_carro[i].marca);
+        printf("\n%s",cad_carro[i].modelo);
+        printf("\n%d",cad_carro[i].ano);
+        printf("\n%s",cad_carro[i].placa);
+        }
+
+    }
+
+
+    return 0;
+}
